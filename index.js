@@ -18,7 +18,10 @@ Do the following:
    HINT: no function required
 */
 
-
+  let votingAge = 21;
+  if (votingAge >= 18) {
+    console.log(true);
+  }
 
 /*
 Task 1b - Values
@@ -31,7 +34,13 @@ Do the following:
    HINT: no function required
 */
 
+let var1 = 20;
+let var2 = 23;
 
+if (var2 > var1) {
+  var1 = var1 + var2;
+  console.log(var1);
+}
 
 
 
@@ -46,8 +55,8 @@ Do the following:
    HINT: look up the Number method
 */
 
-
-
+let str = "1999";
+console.log(Number(str));
 
 /*
 Task 1d - Multiply
@@ -58,11 +67,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
+function multiply(a, b){
+    console.log(a * b);
   }
 
-
+multiply(1, 2);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -74,11 +83,11 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(age){
+    console.log(age * 70);
 }
 
-
+dogYears(12);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -107,9 +116,29 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(weight, age){
+    if (age >= 1) {
+      if (weight <= 5) {
+        console.log(weight*.05);
+      } else if (weight <= 10) {
+        console.log(weight*.04);
+      } else if (weight <= 15) {
+        console.log(weight*.03); 
+      } else if (weight > 15) {
+        console.log(weight*.02);
+      }
+    } else if (age < 1) {
+      if (age >= .1666 && age < .3333) {
+        console.log(weight*.1);
+      } else if (age >= .3333 && age < .5833) {
+        console.log(weight*.05);
+      } else if (age >= .5833 && age <.9999 ) {
+        console.log(weight*.04);
+      }
+    }
   }
+
+  hungryDog(15, 1);
 
 
 
@@ -132,11 +161,47 @@ Use the game function below to do the following:
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
+let compChoice = Math.random();
+let userChoice = Math.random();
+
 function game(user, computer){
-    /*add your code here*/
+    if (computer >= 0 && computer < .3333) {    //cpu rock
+      if (user >= 0 && user < .3333) {          //use rock
+        console.log("cpu rock, user rock")
+        console.log("it's a tie");
+      } else if (user >= .3333 && user < .6666) {
+        console.log("cpu rock, user paper")
+        console.log("you lose!");               //use paper
+      } else if (user >= .6666 && user <= 1) {
+        console.log("cpu rock, user sciss")
+        console.log("you win!");                //use sciss
+      }
+    } else if (computer >= .3333 && computer < .6666) {
+      if (user >= 0 && user < .3333) {
+        console.log("cpu paper, user rock")
+        console.log("you lose!");
+      } else if (user >= .3333 && user < .6666) {
+        console.log("cpu paper, user paper")
+        console.log("it's a tie");
+      } else if (user >= .6666 && user <= 1) {
+        console.log("cpu paper, user sciss")
+        console.log("you win!");
+      }
+    } else if (computer >= .6666 && computer <= 1) {
+      if (user >= 0 && user < .3333) {
+        console.log("cpu sciss, user rock")
+        console.log("you win!");
+      } else if (user >= .3333 && user < .6666) {
+        console.log("cpu sciss, user paper")
+        console.log("you lose!");
+      } else if (user >= .6666 && user <= 1) {
+        console.log("cpu sciss, user sciss")
+        console.log("it's a tie");
+      }
+    }
 }
-  
-  
+
+game(userChoice, compChoice);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -149,10 +214,11 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
+function miles(km){
+    console.log(km/2.2);
   }
 
+  miles(2);
 
 
 //Task 5b - Feet to CM
@@ -163,11 +229,11 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
+function feet(cm){
+    console.log(cm/30.48);
   }
  
-
+feet(60.96);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -179,10 +245,14 @@ Using the annoyingSong function below do the following:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(startingNum){
+        for (let i = 0; i < startingNum; i++) {
+          let currentNum = startingNum - i;
+          console.log(currentNum + " bottles of soda on the wall, " + currentNum + " bottles of soda, take one down pass it around " + (currentNum - 1) + " bottles of soda on the wall");
+        }
   }
 
+  annoyingSong(10);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -199,11 +269,21 @@ Using the grade function below do the following:
    below 60 = F
 */
   
-function grade(/*add your code here*/){
-    /*add your code here*/
+function grade(score){
+    if (score >= 90 && score <= 100) {
+      console.log("A");
+    } else if (score >= 80 && score <= 89) {
+      console.log("B");
+    } else if (score >= 70 && score <= 79) {
+      console.log("C");
+    } else if (score >= 60 && score <= 69) {
+      console.log("D");
+    } else if (score < 60) {
+      console.log("F");
+    }
   }
   
-  
+  grade(91);
   
   
 
@@ -220,10 +300,20 @@ Using the vowelCounter function below do the following:
 */
 
 
-function vowelCounter(/*add your code here*/) {
-    /*add your code here*/
+function vowelCounter(str) {
+    var vowels = 'aeiouAEIOU';
+    var numVowels = 0;
+
+    for (let i = 0; i < str.length; i++) {
+      if (vowels.indexOf(str[i]) !== -1)
+      {
+        numVowels += 1;
+      }
+    }
+    return numVowels;
 }
 
+console.log(vowelCounter("hellooo"));
 
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
